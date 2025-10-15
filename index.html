@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDN Boarding School - Sport Area</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #001437, #031c4a);
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      padding: 20px 80px;
+    }
+
+    .navbar-brand img {
+      height: 55px;
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      font-weight: 500;
+      margin-left: 25px;
+      transition: 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #5f65f8 !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      color: white;
+      background: linear-gradient(140deg, #001437, #00224c);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('assets/bg-shape.png') no-repeat center/cover;
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8%;
+    }
+
+    .hero-text h5 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+      color: #7a6cf5;
+      text-transform: uppercase;
+    }
+
+    .hero-text h1 {
+      font-size: 5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .hero-text h1 span {
+      color: #5f65f8;
+      -webkit-text-stroke: 1px white;
+      font-weight: 900;
+    }
+
+    .hero-buttons {
+      margin-top: 30px;
+    }
+
+    .hero-buttons a {
+      text-decoration: none;
+      color: white;
+      border: 2px solid #5f65f8;
+      padding: 12px 35px;
+      margin-right: 15px;
+      border-radius: 8px;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .hero-buttons a:hover {
+      background: #5f65f8;
+    }
+
+    .player-img {
+      position: relative;
+      z-index: 3;
+    }
+
+    .player-img img {
+      width: 500px;
+      max-width: 100%;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Social Icons */
+    .social-icons {
+      position: absolute;
+      top: 25px;
+      left: 60px;
+      z-index: 5;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.2rem;
+      margin-right: 15px;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #5f65f8;
+    }
+
+    @media (max-width: 992px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+      }
+      .player-img {
+        margin-top: 40px;
+      }
+      .hero-text h1 {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="assets/logo-idn.png" alt="IDN Logo" class="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Media</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h5>IDN BOARDING SCHOOL</h5>
+        <h1>SPORT<br><span>AREA</span></h1>
+        <div class="hero-buttons">
+          <a href="#">ABOUT US</a>
+          <a href="#">SCHEDULE</a>
+        </div>
+      </div>
+      <div class="player-img">
+        <img src="assets/player.png" alt="Basketball Player">
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
