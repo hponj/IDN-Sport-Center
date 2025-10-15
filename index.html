@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IDN Boarding School - Sport Area (Clone)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IDN Boarding School - Sport Area (Full Responsive)</title>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,95 +16,120 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    /* Minimal helper (still tailwind-first). Keeps body font consistent. */
-    :root{--bg-dark:#08122a;--bg-darker:#071227}
-    body{font-family: 'Poppins', sans-serif;}
-    /* For background diagonal shapes similar to sample */
-    .diagonal-bg {
-      background-image: linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(9,15,30,0.65) 45%, rgba(24,10,69,0.4) 100%);
-      background-blend-mode: overlay;
+    body { font-family: 'Poppins', sans-serif; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    :root{
+      --indigo-600: #3b82f6;
+      --bg-dark: #061029;
+      --card-bg: rgba(255,255,255,0.04);
     }
+    /* small decorative diagonal band similar to sample */
+    .diagonal-bg {
+      background-image: linear-gradient(135deg, rgba(6,18,41,0.9) 0%, rgba(11,18,46,0.9) 40%, rgba(24,10,69,0.45) 100%);
+    }
+    /* subtle scrollbar color */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 8px; }
   </style>
 </head>
-<body class="bg-[#061029] text-white">
+<body class="bg-[#061029] text-white antialiased">
 
-  <!-- NAVBAR (sticky + shrink on scroll) -->
-  <header id="siteHeader" class="fixed w-full z-40 top-0 transition-all duration-300">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 py-4 md:py-6 bg-opacity-30 backdrop-blur-sm diagonal-bg">
+  <!-- NAVBAR (sticky + shrink) -->
+  <header id="siteHeader" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-4 md:px-8 py-3 md:py-5 diagonal-bg bg-opacity-30 backdrop-blur-sm rounded-b-md">
       <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-md bg-gradient-to-br from-indigo-500 to-purple-700 flex items-center justify-center text-white font-extrabold text-lg transform transition-transform duration-300" id="brandLogo">IN</div>
+        <div id="brandLogo" class="w-12 h-12 rounded-md bg-gradient-to-br from-indigo-500 to-purple-700 flex items-center justify-center text-white font-extrabold text-lg transform transition-transform duration-300">IN</div>
         <div class="hidden md:block">
-          <div class="text-sm text-gray-300 font-semibold">IDN BOARDING</div>
+          <div class="text-sm text-gray-200 font-semibold">IDN BOARDING</div>
           <div class="text-xs text-indigo-200/80">SPORT AREA</div>
         </div>
       </div>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-200">
-        <a href="#" class="hover:text-white transition-colors">Home</a>
-        <a href="#" class="hover:text-white transition-colors">Sport</a>
-        <a href="#" class="hover:text-white transition-colors">Schedule</a>
-        <a href="#" class="hover:text-white transition-colors">Contact</a>
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-gray-200">
+        <a href="#hero" class="hover:text-white transition-colors">Home</a>
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#events" class="hover:text-white transition-colors">Events</a>
+        <a href="#popular" class="hover:text-white transition-colors">Popular</a>
+        <a href="#schedule" class="hover:text-white transition-colors">Schedule</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
       </nav>
 
       <div class="flex items-center gap-3">
         <button class="hidden md:inline-block px-4 py-2 rounded-md bg-indigo-600 hover:bg-indigo-700 transition transform hover:-translate-y-0.5">About Us</button>
         <button class="px-3 py-2 border border-white/20 rounded-md text-sm hover:bg-white/5 transition">Login</button>
-        <!-- mobile menu placeholder -->
-        <button id="mobileToggle" class="md:hidden ml-2 p-2 rounded-md bg-white/5">
+
+        <!-- mobile -->
+        <button id="mobileToggle" class="lg:hidden ml-2 p-2 rounded-md bg-white/5">
           <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
+
+    <!-- Mobile menu (hidden default) -->
+    <div id="mobileMenu" class="lg:hidden bg-[#071229] bg-opacity-90 backdrop-blur-sm border-t border-white/5 hidden">
+      <div class="px-4 py-4 flex flex-col gap-3">
+        <a class="text-gray-200 font-semibold" href="#hero">Home</a>
+        <a class="text-gray-200 font-semibold" href="#about">About</a>
+        <a class="text-gray-200 font-semibold" href="#events">Events</a>
+        <a class="text-gray-200 font-semibold" href="#popular">Popular</a>
+        <a class="text-gray-200 font-semibold" href="#schedule">Schedule</a>
+        <a class="text-gray-200 font-semibold" href="#contact">Contact</a>
+      </div>
+    </div>
   </header>
 
-  <main class="pt-28">
+  <main class="pt-24">
 
     <!-- HERO -->
-    <section class="relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 md:px-10 py-14 md:py-20 diagonal-bg">
+    <section id="hero" class="relative overflow-hidden">
+      <div class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 py-10 md:py-16 diagonal-bg rounded-b-xl">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div class="space-y-6" data-aos="fade-right" data-aos-duration="900">
-            <div class="uppercase text-indigo-300 tracking-widest font-bold text-sm">IDN BOARDING SCHOOL</div>
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-300">
+          <!-- left -->
+          <div class="space-y-4 md:space-y-6" data-aos="fade-right" data-aos-duration="900">
+            <div class="uppercase text-indigo-300 tracking-wider font-bold text-sm">IDN BOARDING SCHOOL</div>
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-300">
               SPORT AREA
             </h1>
-            <p class="text-gray-300 max-w-xl leading-relaxed">
-              Sport is an essential part of IDN Boarding School. Explore various fields, meet the champions, and discover the spirit of teamwork and sportsmanship.
-            </p>
-            <div class="flex items-center gap-4">
-              <button class="px-6 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 transform transition hover:-translate-y-1 font-semibold">Join Now</button>
-              <button class="px-6 py-3 rounded-lg border border-indigo-400 text-indigo-300 hover:text-white hover:border-white transition font-semibold">Schedule</button>
+            <p class="text-gray-300 max-w-xl text-sm md:text-base">Sport is an essential part of IDN Boarding School. Explore the facilities, meet the champions, and join the next class meet to show your skills and teamwork.</p>
+
+            <div class="flex items-center gap-3">
+              <a href="#contact" class="px-5 md:px-6 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 font-semibold transition transform hover:-translate-y-1">Join Now</a>
+              <a href="#schedule" class="px-5 md:px-6 py-3 rounded-lg border border-indigo-400 text-indigo-300 hover:text-white hover:border-white transition font-semibold">Schedule</a>
             </div>
-            <div class="flex gap-4 mt-4">
-              <div class="flex items-center gap-2 text-sm text-gray-300">
+
+            <div class="flex gap-4 mt-3 text-sm">
+              <div class="flex items-center gap-2 text-gray-300">
                 <svg class="w-5 h-5 text-indigo-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L3 7v6c0 5 3.9 9.7 9 11 5.1-1.3 9-6 9-11V7l-9-5z"/></svg>
-                <span>Modern sport facilities</span>
+                <span>Modern courts & training</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-300">
+                <svg class="w-5 h-5 text-indigo-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 20l9-5-9-5-9 5 9 5z"/></svg>
+                <span>Professional coaches</span>
               </div>
             </div>
           </div>
 
-          <!-- hero image (absolute style on large screens) -->
-          <div class="relative" data-aos="zoom-in" data-aos-duration="900">
-            <div class="hidden md:block absolute right-0 -top-16 w-[460px]">
-              <!-- GANTI GAMBAR: taruh foto pemain kamu di sini -->
-              <img src="https://i.ibb.co/xhBcQqW/basketball-player.png" alt="player" class="w-full drop-shadow-2xl transform transition-all hover:scale-105"/>
+          <!-- right - hero image -->
+          <div class="relative flex justify-center md:justify-end">
+            <div class="w-[320px] md:w-[460px] transform transition-all hover:scale-105" data-aos="zoom-in" data-aos-duration="900">
+              <!-- GANTI GAMBAR: pakai foto pemain/hero kamu -->
+              <img src="https://i.ibb.co/xhBcQqW/basketball-player.png" alt="Player" class="w-full object-contain drop-shadow-2xl"/>
             </div>
-            <div class="md:hidden">
-              <img src="https://i.ibb.co/xhBcQqW/basketball-player.png" alt="player" class="w-3/4 mx-auto drop-shadow-2xl"/>
+
+            <!-- overlay badges, mini text -->
+            <div class="absolute left-4 bottom-6 md:left-8 md:bottom-12 bg-gradient-to-br from-indigo-600 to-purple-700 text-white py-2 px-3 rounded-lg text-xs font-semibold shadow-lg" data-aos="fade-up" data-aos-delay="200">
+              NEW • CLASS MEET 2024
             </div>
           </div>
         </div>
       </div>
-      <!-- decorative diagonal overlay -->
-      <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-[#0b1833]/20 to-transparent"></div>
     </section>
 
-    <!-- WHAT IS SPORT AREA (white card style) -->
-    <section class="max-w-7xl mx-auto px-6 md:px-10 py-10">
-      <div class="bg-white text-[#08122a] rounded-lg shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-3">
+    <!-- ABOUT / WHAT IS SPORT AREA -->
+    <section id="about" class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 py-8 md:py-12">
+      <div class="bg-white text-[#08122a] rounded-xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-3">
         <div class="md:col-span-1">
-          <!-- GANTI GAMBAR: gambar lapangan -->
-          <img src="https://i.ibb.co/Vgxw2kM/sportfield.jpg" alt="field" class="w-full h-full object-cover"/>
+          <!-- GANTI GAMBAR: lapangan / facility -->
+          <img src="https://i.ibb.co/Vgxw2kM/sportfield.jpg" alt="Field" class="w-full h-full object-cover"/>
         </div>
         <div class="p-6 md:col-span-2 space-y-4">
           <div class="flex items-center gap-3">
@@ -114,52 +139,57 @@
               <div class="text-sm text-gray-500">Sport Area</div>
             </div>
           </div>
-          <h3 class="text-2xl font-extrabold">What is the IDN Boarding School Sports Area?</h3>
-          <p class="text-gray-600">The IDN Sports Area is a facility designed for students to enhance physical health, discipline, and teamwork through basketball, futsal, pull-ups, and many other activities. It fosters competition, skill-building, and camaraderie.</p>
-          <div class="flex items-center gap-3">
-            <button class="px-5 py-2 rounded-md bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition">Read More</button>
-            <a class="text-indigo-600 font-semibold hover:underline" href="#">See Programs</a>
+          <h3 class="text-2xl md:text-3xl font-extrabold">What is the IDN Boarding School Sports Area?</h3>
+          <p class="text-gray-600 leading-relaxed">A complete sports facility focused on improving student fitness, discipline, and teamwork. Includes basketball courts, futsal arena, pull-up stations, training rooms, and event spaces for inter-class competitions.</p>
+
+          <div class="flex items-center gap-3 mt-3">
+            <a class="px-4 py-2 rounded-md bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition" href="#events">Read More</a>
+            <a class="text-indigo-600 font-semibold hover:underline" href="#popular">See Programs</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- COUNTDOWN -->
-    <section class="py-8 bg-gradient-to-r from-[#071227] to-[#0f2346]">
-      <div class="max-w-7xl mx-auto px-6 md:px-10 text-center" data-aos="fade-up" data-aos-duration="800">
+    <!-- EVENTS / COUNTDOWN -->
+    <section id="events" class="py-8 md:py-12 bg-gradient-to-r from-[#071227] to-[#0f2346]">
+      <div class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 text-center" data-aos="fade-up">
         <h2 class="text-2xl md:text-3xl font-bold mb-6">IDN Class Meet 2024</h2>
-        <div class="inline-grid grid-cols-4 gap-6 text-center">
-          <div class="px-6 py-6 bg-white/5 rounded-lg backdrop-blur-sm">
-            <div id="cd-days" class="text-4xl font-extrabold">03</div>
-            <div class="text-sm text-gray-300 mt-2">Days</div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mx-auto max-w-lg md:max-w-2xl">
+          <div class="p-6 rounded-lg bg-white/5 backdrop-blur-sm">
+            <div id="cd-days" class="text-3xl md:text-4xl font-extrabold">03</div>
+            <div class="text-xs text-gray-300 mt-2">Days</div>
           </div>
-          <div class="px-6 py-6 bg-white/5 rounded-lg backdrop-blur-sm">
-            <div id="cd-hours" class="text-4xl font-extrabold">23</div>
-            <div class="text-sm text-gray-300 mt-2">Hours</div>
+          <div class="p-6 rounded-lg bg-white/5 backdrop-blur-sm">
+            <div id="cd-hours" class="text-3xl md:text-4xl font-extrabold">23</div>
+            <div class="text-xs text-gray-300 mt-2">Hours</div>
           </div>
-          <div class="px-6 py-6 bg-white/5 rounded-lg backdrop-blur-sm">
-            <div id="cd-mins" class="text-4xl font-extrabold">02</div>
-            <div class="text-sm text-gray-300 mt-2">Minutes</div>
+          <div class="p-6 rounded-lg bg-white/5 backdrop-blur-sm">
+            <div id="cd-mins" class="text-3xl md:text-4xl font-extrabold">02</div>
+            <div class="text-xs text-gray-300 mt-2">Minutes</div>
           </div>
-          <div class="px-6 py-6 bg-white/5 rounded-lg backdrop-blur-sm">
-            <div id="cd-secs" class="text-4xl font-extrabold">17</div>
-            <div class="text-sm text-gray-300 mt-2">Seconds</div>
+          <div class="p-6 rounded-lg bg-white/5 backdrop-blur-sm">
+            <div id="cd-secs" class="text-3xl md:text-4xl font-extrabold">17</div>
+            <div class="text-xs text-gray-300 mt-2">Seconds</div>
           </div>
         </div>
+
+        <p class="text-gray-300 mt-6 max-w-2xl mx-auto">Join the annual competition where students from all classes compete in basketball, futsal, and endurance events. Register your team now!</p>
       </div>
     </section>
 
-    <!-- CHAMPION + SIDEBAR -->
-    <section class="max-w-7xl mx-auto px-6 md:px-10 py-10">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-        <div class="col-span-2 bg-white text-[#08122a] rounded-lg shadow-lg overflow-hidden" data-aos="fade-right">
-          <!-- GANTI GAMBAR: image -->
-          <img src="https://i.ibb.co/Vgxw2kM/sportfield.jpg" alt="champ" class="w-full object-cover h-56"/>
+    <!-- HIGHLIGHT CARD + SIDEBAR -->
+    <section class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 py-8 md:py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-2 bg-white text-[#08122a] rounded-lg shadow-lg overflow-hidden" data-aos="fade-right">
+          <!-- GANTI GAMBAR -->
+          <img src="https://i.ibb.co/Vgxw2kM/sportfield.jpg" alt="Event highlight" class="w-full h-56 object-cover"/>
           <div class="p-6">
             <h3 class="text-2xl font-extrabold">IDN Class Meet of 2024</h3>
-            <p class="mt-2 text-gray-600">Highlights and event recap from our annual sports meet where students competed across disciplines and showed exceptional spirit.</p>
+            <p class="mt-2 text-gray-600">A recap of highlights from our last Class Meet — outstanding performances, memorable moments, and champions crowned across categories.</p>
             <div class="mt-4 flex gap-3">
-              <button class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition">Read More</button>
+              <a class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition" href="#">Read More</a>
+              <a class="px-4 py-2 border border-gray-200 rounded-md text-sm hover:bg-gray-50 hover:text-[#08122a] transition" href="#">Gallery</a>
             </div>
           </div>
         </div>
@@ -186,51 +216,56 @@
       </div>
     </section>
 
-    <!-- STATS BAR -->
-    <section class="py-10 bg-gradient-to-r from-[#16203e] to-[#1c2b52]">
-      <div class="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <!-- STATS STRIP -->
+    <section class="py-8 bg-gradient-to-r from-[#16203e] to-[#1c2b52]">
+      <div class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
         <div class="p-6">
-          <div class="text-4xl md:text-5xl font-extrabold text-indigo-300">125</div>
+          <div class="text-3xl md:text-4xl font-extrabold text-indigo-300">125</div>
           <div class="text-sm text-gray-300 mt-2">Athletes</div>
         </div>
         <div class="p-6">
-          <div class="text-4xl md:text-5xl font-extrabold text-indigo-300">15+</div>
+          <div class="text-3xl md:text-4xl font-extrabold text-indigo-300">15+</div>
           <div class="text-sm text-gray-300 mt-2">Sport Fields</div>
         </div>
         <div class="p-6">
-          <div class="text-4xl md:text-5xl font-extrabold text-indigo-300">250+</div>
+          <div class="text-3xl md:text-4xl font-extrabold text-indigo-300">250+</div>
           <div class="text-sm text-gray-300 mt-2">Member Clubs</div>
         </div>
         <div class="p-6">
-          <div class="text-4xl md:text-5xl font-extrabold text-indigo-300">17</div>
+          <div class="text-3xl md:text-4xl font-extrabold text-indigo-300">17</div>
           <div class="text-sm text-gray-300 mt-2">Major Events</div>
         </div>
       </div>
     </section>
 
-    <!-- MOST POPULAR (3 cards) -->
-    <section class="max-w-7xl mx-auto px-6 md:px-10 py-10 bg-white text-[#08122a] rounded-t-lg">
-      <h3 class="text-2xl font-extrabold mb-6">Most Popular Sport of 2025</h3>
+    <!-- MOST POPULAR -->
+    <section id="popular" class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 py-10 bg-white text-[#08122a] rounded-t-lg" data-aos="fade-up">
+      <h3 class="text-2xl md:text-3xl font-extrabold mb-6">Most Popular Sport of 2025</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="rounded-lg p-6 shadow-lg bg-indigo-50 transform hover:-translate-y-2 transition" data-aos="flip-left">
           <div class="text-3xl font-extrabold text-indigo-700">#1</div>
           <div class="mt-3 text-xl font-semibold">Basketball</div>
+          <p class="mt-2 text-sm text-gray-600">Fast-paced team sport with top participation.</p>
         </div>
+
         <div class="rounded-lg p-6 shadow-lg bg-indigo-50 transform hover:-translate-y-2 transition" data-aos="flip-left" data-aos-delay="100">
           <div class="text-3xl font-extrabold text-indigo-700">#2</div>
           <div class="mt-3 text-xl font-semibold">Futsal</div>
+          <p class="mt-2 text-sm text-gray-600">Popular indoor soccer variant, great for skills.</p>
         </div>
+
         <div class="rounded-lg p-6 shadow-lg bg-indigo-50 transform hover:-translate-y-2 transition" data-aos="flip-left" data-aos-delay="200">
           <div class="text-3xl font-extrabold text-indigo-700">#3</div>
           <div class="mt-3 text-xl font-semibold">Pull Up</div>
+          <p class="mt-2 text-sm text-gray-600">Strength & endurance challenge loved by many.</p>
         </div>
       </div>
     </section>
 
-    <!-- SCHEDULE TABLE -->
-    <section class="max-w-7xl mx-auto px-6 md:px-10 py-10 bg-gradient-to-b from-[#0b1630] to-[#102246] text-gray-200">
-      <h3 class="text-2xl font-extrabold mb-6 text-white">Weekly Schedule</h3>
-      <div class="overflow-x-auto">
+    <!-- SCHEDULE TABLE (matches sample) -->
+    <section id="schedule" class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 py-8 md:py-12 bg-gradient-to-b from-[#0b1630] to-[#102246] text-gray-200">
+      <h3 class="text-2xl md:text-3xl font-extrabold mb-6 text-white">Weekly Schedule</h3>
+      <div class="overflow-x-auto bg-transparent rounded-md shadow-inner">
         <table class="min-w-full text-left border-collapse">
           <thead>
             <tr class="bg-[#12203d]">
@@ -255,49 +290,205 @@
               <td class="py-3 px-4">Wednesday</td>
               <td class="py-3 px-4">15:30 - 17:00</td>
             </tr>
+            <tr class="odd:bg-[#07122a] even:bg-[#0d1a38]">
+              <td class="py-3 px-4">Training</td>
+              <td class="py-3 px-4">Thursday</td>
+              <td class="py-3 px-4">16:00 - 18:00</td>
+            </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- CTA FOOTER -->
-    <section class="py-12 bg-gradient-to-r from-[#0f1b38] to-[#1a2650] text-center">
-      <div class="max-w-4xl mx-auto px-6">
-        <h3 class="text-2xl font-extrabold mb-4">Ready to join the team?</h3>
-        <p class="text-gray-300 mb-6">Sign up now and be part of the next IDN Class Meet.</p>
-        <button class="px-8 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 transition">Register Now</button>
+    <!-- TESTIMONIALS / POPULAR NEWS -->
+    <section class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-2 bg-white text-[#08122a] rounded-lg p-6 shadow" data-aos="fade-right">
+          <h4 class="font-extrabold text-xl">Popular News</h4>
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- cards placeholders -->
+            <div class="col-span-1 bg-gray-50 rounded shadow p-3">
+              <img src="https://i.ibb.co/Vgxw2kM/sportfield.jpg" alt="" class="w-full h-28 object-cover rounded" />
+              <h5 class="mt-2 font-semibold">Basketball tournament recap</h5>
+            </div>
+            <div class="col-span-1 bg-gray-50 rounded shadow p-3">
+              <img src="https://i.ibb.co/Vgxw2kM/sportfield.jpg" alt="" class="w-full h-28 object-cover rounded" />
+              <h5 class="mt-2 font-semibold">Futsal training tips</h5>
+            </div>
+            <div class="col-span-1 bg-gray-50 rounded shadow p-3">
+              <img src="https://i.ibb.co/Vgxw2kM/sportfield.jpg" alt="" class="w-full h-28 object-cover rounded" />
+              <h5 class="mt-2 font-semibold">Pull-up challenge winners</h5>
+            </div>
+          </div>
+        </div>
+
+        <aside class="bg-gradient-to-tr from-[#13213c] to-[#1d2c56] rounded-lg p-6 text-white shadow" data-aos="fade-left">
+          <h5 class="font-semibold">Popular Events</h5>
+          <ul class="mt-4 space-y-3 text-sm">
+            <li class="flex justify-between"><span>Inter-class Basketball</span><span class="font-bold">#1</span></li>
+            <li class="flex justify-between"><span>Futsal Cup</span><span class="font-bold">#2</span></li>
+            <li class="flex justify-between"><span>Pull-up Marathon</span><span class="font-bold">#3</span></li>
+          </ul>
+        </aside>
       </div>
     </section>
 
-  </main>
+    <!-- FAQ + REGISTER CTA -->
+    <section class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 py-8 bg-white text-[#08122a] rounded-lg" data-aos="fade-up">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h4 class="text-2xl font-extrabold mb-4">Popular Questions</h4>
+          <div class="space-y-3 text-sm">
+            <details class="p-4 bg-gray-50 rounded"><summary class="font-semibold cursor-pointer">How to register a team?</summary><div class="mt-2 text-gray-700">Fill the registration form under the events menu or contact the admin.</div></details>
+            <details class="p-4 bg-gray-50 rounded"><summary class="font-semibold cursor-pointer">What are the equipment requirements?</summary><div class="mt-2 text-gray-700">Standard sportswear, appropriate shoes, and team jersey.</div></details>
+            <details class="p-4 bg-gray-50 rounded"><summary class="font-semibold cursor-pointer">Is there any participation fee?</summary><div class="mt-2 text-gray-700">Minimal fee applies for venue and referees; sponsors may cover some costs.</div></details>
+          </div>
+        </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-[#08122a] text-center py-6 text-gray-400 text-sm">
-    © 2025 IDN Boarding School Sport Area. All rights reserved.
-  </footer>
+        <div class="bg-indigo-50 rounded p-6 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-bold text-indigo-800">Register Your Team</h4>
+            <p class="text-sm text-indigo-700 mt-2">Quick registration to join the next class meet.</p>
+            <form class="mt-4 space-y-3">
+              <input class="w-full p-3 rounded border border-indigo-200" placeholder="Team name" />
+              <input class="w-full p-3 rounded border border-indigo-200" placeholder="Coach / Contact" />
+              <input class="w-full p-3 rounded border border-indigo-200" placeholder="Email" />
+              <button class="w-full mt-2 px-4 py-3 bg-indigo-600 text-white rounded font-semibold hover:bg-indigo-700 transition">Submit Registration</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA (final) -->
+    <section class="py-10 bg-gradient-to-r from-[#0f1b38] to-[#1a2650] text-center">
+      <div class="max-w-4xl mx-auto px-4">
+        <h3 class="text-2xl md:text-3xl font-extrabold mb-4">Ready to join the team?</h3>
+        <p class="text-gray-300 mb-6">Sign up now and be part of the next IDN Class Meet.</p>
+        <a href="#contact" class="px-8 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 transition inline-block">Register Now</a>
+      </div>
+    </section>
+
+    <!-- CONTACT & FOOTER (full) -->
+    <footer id="contact" class="bg-[#08122a] text-gray-300">
+      <div class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- contact form -->
+        <div class="bg-gradient-to-tr from-[#0d1832] to-[#10264a] p-6 rounded-lg shadow" data-aos="fade-right">
+          <h4 class="text-white font-extrabold">Contact Us</h4>
+          <p class="text-gray-400 text-sm mt-2">Have a question? Send us a message.</p>
+          <form class="mt-4 space-y-3">
+            <input class="w-full p-3 rounded bg-white/5 border border-white/6" placeholder="Your name" />
+            <input class="w-full p-3 rounded bg-white/5 border border-white/6" placeholder="Email" />
+            <textarea class="w-full p-3 rounded bg-white/5 border border-white/6" rows="3" placeholder="Message"></textarea>
+            <button class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">Send Message</button>
+          </form>
+        </div>
+
+        <!-- address & links -->
+        <div class="p-6 rounded-lg" data-aos="fade-up">
+          <h5 class="text-white font-bold">IDN Boarding School</h5>
+          <p class="text-gray-400 text-sm mt-2">Jl. Pendidikan No. 123, Kota Contoh — Provinsi</p>
+
+          <div class="mt-4 grid grid-cols-2 gap-2 text-sm">
+            <div>
+              <h6 class="font-semibold text-gray-200">Phone</h6>
+              <p class="text-gray-400">+62 812 3456 7890</p>
+            </div>
+            <div>
+              <h6 class="font-semibold text-gray-200">Email</h6>
+              <p class="text-gray-400">info@idnboarding.sch.id</p>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <h6 class="font-semibold text-gray-200">Quick Links</h6>
+            <ul class="mt-2 space-y-2 text-sm">
+              <li><a class="text-indigo-400 hover:underline" href="#about">About</a></li>
+              <li><a class="text-indigo-400 hover:underline" href="#events">Events</a></li>
+              <li><a class="text-indigo-400 hover:underline" href="#popular">Popular</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- newsletter + social -->
+        <div class="bg-gradient-to-tr from-[#102044] to-[#15325a] p-6 rounded-lg shadow" data-aos="fade-left">
+          <h5 class="text-white font-bold">Stay Updated</h5>
+          <p class="text-gray-400 text-sm mt-2">Subscribe to our newsletter for event updates.</p>
+          <form class="mt-4 flex gap-2">
+            <input class="flex-1 p-3 rounded bg-white/5 border border-white/6" placeholder="Your email" />
+            <button class="px-4 py-3 bg-indigo-600 rounded font-semibold hover:bg-indigo-700 transition">Subscribe</button>
+          </form>
+
+          <div class="mt-6">
+            <h6 class="text-white font-semibold">Follow Us</h6>
+            <div class="flex items-center gap-3 mt-3">
+              <a class="bg-white/5 p-2 rounded hover:bg-white/10 transition" href="#" aria-label="facebook">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 4.99 3.66 9.13 8.44 9.93v-7.03H7.9V12.07h2.54V9.79c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.2 2.23.2v2.45h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.9h-2.3v7.03C18.34 21.2 22 17.06 22 12.07z"/></svg>
+              </a>
+              <a class="bg-white/5 p-2 rounded hover:bg-white/10 transition" href="#" aria-label="instagram">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4 4 0 1 0 16 12a4 4 0 0 0-4-3.5zM18 7.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+              </a>
+              <a class="bg-white/5 p-2 rounded hover:bg-white/10 transition" href="#" aria-label="twitter">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M22 5.92c-.64.29-1.33.48-2.05.57a3.56 3.56 0 0 0-6.06 2.43c0 .28.03.56.09.82A10.12 10.12 0 0 1 3.2 4.86a3.56 3.56 0 0 0 1.1 4.74c-.53-.02-1.03-.16-1.47-.4 0 1.9 1.33 3.48 3.1 3.85-.45.12-.92.13-1.41.05a3.57 3.57 0 0 0 3.33 2.48A7.15 7.15 0 0 1 3 18.58 10.1 10.1 0 0 0 8.49 20c6.58 0 10.18-5.45 10.18-10.18v-.46c.7-.5 1.3-1.13 1.77-1.85-.64.28-1.33.49-2.05.57z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/5 mt-4">
+        <div class="max-w-[1280px] mx-auto px-4 md:px-8 lg:px-12 py-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+          <div>© 2025 IDN Boarding School Sport Area. All rights reserved.</div>
+          <div class="mt-3 md:mt-0">Made with ❤️ • <span class="text-indigo-400">IDN Sport</span></div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
 
   <!-- SCRIPTS -->
   <script>
     // Init AOS
-    AOS.init({ once: true, duration: 700 });
+    AOS.init({ once: true, duration: 800, easing: 'ease-out-quart' });
 
     // navbar shrink on scroll
     const header = document.getElementById('siteHeader');
+    const brand = document.getElementById('brandLogo');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 30) {
         header.classList.add('backdrop-blur-md', 'bg-opacity-60');
-        header.querySelector('#brandLogo').classList.add('scale-90');
-        header.style.padding = '0';
+        brand.classList.add('scale-90');
+        header.classList.add('shadow-lg');
       } else {
         header.classList.remove('backdrop-blur-md', 'bg-opacity-60');
-        header.querySelector('#brandLogo').classList.remove('scale-90');
-        header.style.padding = '';
+        brand.classList.remove('scale-90');
+        header.classList.remove('shadow-lg');
       }
     });
 
-    // Simple Countdown (example target date; change to your event)
+    // mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileToggle && mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // close mobile menu on click
+          if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+        }
+      });
+    });
+
+    // Simple Countdown target (change to your real date/time)
     const target = new Date();
-    target.setDate(target.getDate() + 3); // demo: 3 days from now
+    target.setDate(target.getDate() + 3); // demo target: 3 days from now
     function updateCountdown(){
       const now = new Date().getTime();
       const diff = target.getTime() - now;
@@ -313,13 +504,14 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // Mobile menu toggle (simple)
-    const mobileToggle = document.getElementById('mobileToggle');
-    mobileToggle && mobileToggle.addEventListener('click', () => {
-      alert('Mobile menu belum di-setup. Kamu bisa tambahkan menu responsif di sini.');
+    // Optional: reveal animation on load for hero elements
+    window.addEventListener('load', ()=> {
+      document.querySelectorAll('[data-aos]').forEach(el=>{
+        // rely on AOS; additional small delay possible
+      });
     });
   </script>
 
-  <!-- AOS CSS (already loaded above) -->
+  <!-- AOS loaded -->
 </body>
 </html>
