@@ -947,13 +947,15 @@
       font-weight: 800;
       margin-bottom: 25px;
       position: relative;
+      display: block;
     }
 
     .footer h5::after {
       content: '';
       position: absolute;
       bottom: -10px;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
       width: 50px;
       height: 3px;
       background: linear-gradient(90deg, #5f65f8, #8b5cf6);
@@ -974,6 +976,12 @@
       transition: all 0.3s ease;
       position: relative;
     }
+
+    /* Social links in footer with icons */
+    .social-links { display: inline-block; text-align: left; }
+    .social-link { display: inline-flex; align-items: center; gap: 10px; color: #60a5fa; font-weight: 700; }
+    .social-link i { font-size: 1.05rem; width: 22px; text-align: center; }
+    .social-link:hover { color: #ffffff; transform: translateX(4px); }
 
     .footer a::after {
       content: '';
