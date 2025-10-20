@@ -259,6 +259,127 @@
       }
     }
 
+    /* Hero Section-contact us */
+    .hero-contact {
+      background-image: linear-gradient(rgba(10, 20, 50, 0.75), rgba(10, 20, 50, 0.9)), url("images/bg-3.png");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .hero-contact::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to top, #0b0f1f, transparent);
+    }
+
+    .hero-contact-logo {
+      padding-right: 1rem;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      animation: heroContactFloat 3s ease-in-out infinite;
+    }
+
+    /* animasi diberi nama unik juga */
+    @keyframes heroContactFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-contact-title {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      color: #ffffff;
+    }
+
+    .hero-contact-subtitle {
+      color: #aaa;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    .btn-hero-contact {
+      background-color: #7b61ff;
+      color: #fff;
+      border-radius: 30px;
+      padding: 10px 25px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-hero-contact:hover {
+      background-color: #9370ff;
+      transform: translateY(-2px);
+    }
+
+    /* CONTACT SECTION */
+    #contact {
+      background-color: #0b0f1f;
+      background-image: linear-gradient(rgba(10, 20, 50, 0.7), rgba(10, 20, 50, 0.9));
+      color: #fff;
+    }
+
+    .contact-list li {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .contact-list i {
+      color: #9370ff;
+    }
+
+    /* FORM */
+    .contact-form {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .form-control,
+    .form-select {
+      background-color: rgba(255, 255, 255, 0.07);
+      border: none;
+      color: #fff;
+      padding: 12px 15px;
+      border-radius: 8px;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .form-select option {
+      background-color: #1a1a2e;
+      color: #fff;
+    }
+
+    .btn-send {
+      background-color: #7b61ff;
+      color: #fff;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
+
+    .btn-send:hover {
+      background-color: #9370ff;
+    }
+
+    /* MAP */
+    .custom-icon-color {
+      color: #9370ff; /* Replace this with the same color you used above */
+    }
+
+    .map-container {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
     /* Buttons */
     .btn-main { 
       background: linear-gradient(135deg, #5f65f8, #8b5cf6); 
